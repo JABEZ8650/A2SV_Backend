@@ -43,6 +43,18 @@ func GetUserByUsername(ctx context.Context, username string) (*model.User, error
 	return &user, nil
 }
 
+func GetUserByID(ctx context.Context, id string) (*model.User, error) {
+
+	// Define a variable to hold the user data
+	var user model.User
+	if err := userCollection.FindOne(ctx, bson.M{"_id": id}).Decode(&user); err != nil {
+		return nil, errors.New("user not found")
+	}
+
+	// Return the user object
+	return &user, nil
+}
+
 func PromoteUser(ctx context.Context, username string) error {
 
 	filter := bson.M{"username": username}

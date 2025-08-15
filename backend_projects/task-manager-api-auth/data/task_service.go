@@ -76,13 +76,3 @@ func UpdateTask(ctx context.Context, id string, updateTask *model.Task) (*model.
 
 	return &updated, nil
 }
-
-func DeleteTask(ctx context.Context, id string) error {
-
-	_, err := taskCollection.DeleteOne(ctx, bson.M{"_id": id})
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
