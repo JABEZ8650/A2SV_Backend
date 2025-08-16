@@ -14,7 +14,7 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-var jwtSecret = []byte("your_jwt_secret_is_Yanet")
+var jwtSecret = []byte("your_jwt_secret")
 
 func CreateUser(ctx *gin.Context) {
 	newUser := model.User{}
@@ -47,7 +47,7 @@ func LoginUser(ctx *gin.Context) {
 		return
 	}
 
-	//Retrive use from database
+	//Retrieve user from database
 	retrievedUser, err := data.GetUserByUsername(ctx, user.Username)
 	if err != nil {
 		ctx.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid username or password"})
@@ -90,7 +90,7 @@ func PromoteUser(ctx *gin.Context) {
 		return
 	}
 
-	//Retrive use from database
+	//Retrieve user from database
 	_, er := data.GetUserByID(ctx, user.UserID)
 	if er != nil {
 		ctx.JSON(http.StatusUnauthorized, gin.H{"error": "user not found"})

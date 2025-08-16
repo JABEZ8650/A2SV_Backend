@@ -11,7 +11,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-var jwtSecret = []byte("your_jwt_secret_is_Yanet")
+var jwtSecret = []byte("your_jwt_secret")
 
 func AuthMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
