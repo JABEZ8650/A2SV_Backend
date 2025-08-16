@@ -24,3 +24,9 @@
 - **Description**: Deletes a task by ID.
 - **Response**: Confirmation message.
 
+## Example:
+- **GET request: http://localhost:8080/tasks (to get all tasks)**
+- **GET request: http://localhost:8080/tasks/1 (to get a task with ID 1)**
+- **POST request: http://localhost:8080/tasks (to create a new task)**
+- **PATCH request: http://localhost:8080/tasks/1 (to update an existing task)**
+- **DELETE request: http://localhost:8080/tasks/1 (to delete a task)**
